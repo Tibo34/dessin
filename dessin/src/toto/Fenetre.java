@@ -16,8 +16,8 @@ import dessin.Rectangle;
 
 public class Fenetre extends JFrame{
 	
-	private int height=400;
-	private int width=400;
+	private int height=800;
+	private int width=800;
 	
 	public Fenetre(String title) {
 		super(title);
@@ -32,17 +32,27 @@ public class Fenetre extends JFrame{
 	public void initialisation() {	
 		setSize(width, height);
 		setLocationRelativeTo(null);
-		Rectangle r=new Rectangle(150,220,40,100,Color.RED);
-		Cercle c1=new Cercle(new Point(200,200),100,Color.BLUE);	
-		Cercle c2=new Cercle(new Point(160,150),20,Color.GREEN);	
-		Cercle c3=new Cercle(new Point(240,150),20,Color.MAGENTA);	
+		Rectangle r=new Rectangle(350,420,40,100,Color.RED);
+		Cercle c1=new Cercle(new Point(400,400),100,Color.BLUE);	
+		Cercle c2=new Cercle(new Point(360,350),20,Color.GREEN);	
+		Cercle c3=new Cercle(new Point(440,350),20,Color.MAGENTA);
+		Cercle c4=new Cercle(new Point(400,400),300,Color.red);
+		Cercle c5=new Cercle(new Point(400,400),250,Color.green);
+		Cercle c6=new Cercle(new Point(400,400),200,Color.blue);
+		Cercle c7=new Cercle(new Point(400,400),150,Color.cyan);
+		
 		ArrayList<ObjectGraphique> list=new ArrayList<ObjectGraphique>();
 		list.add(r);
 		list.add(c1);
 		list.add(c2);
 		list.add(c3);
+		list.add(c4);
+		list.add(c5);
+		list.add(c6);
+		list.add(c7);
+		
 		TotoJPanel p=new TotoJPanel(list);
-		p.setBackground(Color.WHITE);
+		
 		add(p);
 		setVisible(true);
 	}

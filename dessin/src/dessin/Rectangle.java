@@ -8,14 +8,32 @@ public class Rectangle extends ObjectGraphique {
 	
 	private java.awt.Rectangle rectangle;
 	
+	/**
+	 * Constructeur  vide
+	 */
 	public Rectangle() {
 		setRectangle(new java.awt.Rectangle(0,0,100,50));
 	}
 	
+	
+	/**
+	 * Constructeur
+	 * @param p Point
+	 * @param largeur int
+	 * @param hauteur int 
+	 */
 	 public Rectangle(Point p, int largeur, int hauteur) {
 	    	this(p.x,p.y,largeur,hauteur);
 	 }
 
+	 /**
+	  * 
+	  * Constructeur
+	  * @param x int
+	  * @param y int
+	  * @param l int
+	  * @param h int 
+	  */
     public Rectangle(int x, int y, int l, int h) {
     	rectangle=new java.awt.Rectangle(x,y,l,h);     	
     }
