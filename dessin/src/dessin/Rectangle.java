@@ -6,31 +6,37 @@ import java.awt.Point;
 
 public class Rectangle extends ObjectGraphique {
 	
-	private Rectangle rectangle;
+	private java.awt.Rectangle rectangle;
 	
 	public Rectangle() {
-		setRectangle(new Rectangle(0,0,100,50));
+		setRectangle(new java.awt.Rectangle(0,0,100,50));
 	}
 	
-	
+	 public Rectangle(Point p, int largeur, int hauteur) {
+	    	this(p.x,p.y,largeur,hauteur);
+	 }
 
-    public Rectangle(int x, int y, int largeur, int hauteur) {
-    	setRectangle(new Rectangle(x,y,largeur,hauteur));    	
+    public Rectangle(int x, int y, int l, int h) {
+    	rectangle=new java.awt.Rectangle(x,y,l,h);     	
     }
     
-    public Rectangle(Point p, int largeur, int hauteur) {
-    	setRectangle(new Rectangle(p,largeur,hauteur));
-    }
+    public Rectangle(int x, int y, int l, int h,Color c) {
+    	this(x,y,l,h);
+    	this.setColor(c);
+    }   
+    
+   
     public Rectangle(Point p, int largeur,int hauteur,Color c) {
-    	setRectangle(new Rectangle(p,largeur,hauteur));
+    	this(p,largeur,hauteur);
     	this.setColor(c);
     }
     
 	@Override
 	public void dessineToi(Graphics g) {
-		// TODO Auto-generated method stub
-		
+		g.setColor(this.getColor());
+		g.drawRect(rectangle.x,rectangle.y,rectangle.height,rectangle.width);		
 	}
+	
 	@Override
 	public boolean contient(int a, int b) {
 		// TODO Auto-generated method stub
@@ -39,14 +45,26 @@ public class Rectangle extends ObjectGraphique {
 
 
 
-	public Rectangle getRectangle() {
+	public java.awt.Rectangle getRectangle() {
 		return rectangle;
 	}
 
 
 
-	public void setRectangle(Rectangle rectangle) {
+	@Override
+	public String toString() {
+		return "Rectangle [rectangle=" + rectangle + "]";
+	}
+
+	public void setRectangle(java.awt.Rectangle rectangle) {
 		this.rectangle = rectangle;
+	}
+	
+	public static void main(String[] args) {
+		Point p=new Point(200,200);		
+		Color c=Color.black;
+		Rectangle r=new Rectangle(p,100,50,c);
+		System.out.println(r);
 	}
 
 }
