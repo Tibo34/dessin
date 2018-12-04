@@ -5,16 +5,14 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
-import java.util.Random;
-
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import dessin.Cercle;
 import dessin.ObjectGraphique;
 import dessin.Rectangle;
 
+@SuppressWarnings("serial")
 public class TotoJPanel extends JPanel {
 	
 	private ArrayList<ObjectGraphique> listObjectDisplay;
@@ -106,10 +104,10 @@ public class TotoJPanel extends JPanel {
 	 */
 	private void Display(ObjectGraphique o) {
 		if(listObjectDisplay.contains(o)) {
-			listObjectDisplay.remove(o);
+			listObjectDisplay.remove(o);// enlève l'object des objet à affiché
 		}
 		else {
-			listObjectDisplay.add(o);
+			listObjectDisplay.add(o);// rajoute l'objet
 		}
 		repaint();
 	}

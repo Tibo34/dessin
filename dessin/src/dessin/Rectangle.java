@@ -72,19 +72,18 @@ public class Rectangle extends ObjectGraphique {
 		g.drawRect(rectangle.x,rectangle.y,rectangle.width,rectangle.height);		
 	}
 	
+	/**
+	 * Détermine si un point de coordonnée x et y est dans le rectangle
+	 */
 	@Override
 	public boolean contient(int x, int y) {
 		return rectangle.contains(x, y);
 	}
 
-
-
 	public java.awt.Rectangle getRectangle() {
 		return rectangle;
 	}
-
-
-
+	
 	@Override
 	public String toString() {
 		return "Rectangle [rectangle=" + rectangle + "]";
@@ -94,11 +93,6 @@ public class Rectangle extends ObjectGraphique {
 		this.rectangle = rectangle;
 	}
 	
-	public static void main(String[] args) {
-		Point p=new Point(200,200);		
-		Color c=Color.black;
-		Rectangle r=new Rectangle(p,100,50,c);
-		System.out.println(r);
-	}
+	
 
 }
