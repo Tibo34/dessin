@@ -12,53 +12,69 @@ public class Rectangle extends ObjectGraphique {
 	 * Constructeur  vide
 	 */
 	public Rectangle() {
-		setRectangle(new java.awt.Rectangle(0,0,100,50));
+		rectangle=new java.awt.Rectangle(0,0,100,50);
 	}
 	
 	
 	/**
+	  * 
+	  * Constructeur
+	  * @param x int valeur x du premier point du rectangle
+	  * @param y int valeur y du premier point du rectangle
+	  * @param w int largeur
+	  * @param h int hauteur
+	  */
+	public Rectangle(int x, int y, int w, int h) {
+		rectangle=new java.awt.Rectangle(x,y,w,h);     	
+	}
+
+
+	/**
 	 * Constructeur
-	 * @param p Point
-	 * @param largeur int
-	 * @param hauteur int 
+	 * @param p Point coordonnée du premier point du rectangle
+	 * @param w int largueur
+	 * @param h int hauteur
 	 */
-	 public Rectangle(Point p, int largeur, int hauteur) {
-	    	this(p.x,p.y,largeur,hauteur);
+	 public Rectangle(Point p, int w, int h) {
+	    	this(p.x,p.y,w,h);
 	 }
 
 	 /**
-	  * 
 	  * Constructeur
-	  * @param x int
-	  * @param y int
-	  * @param l int
-	  * @param h int 
+	  * @param x int valeur x du premier point du rectangle
+	  * @param y int valeur y du premier point du rectangle
+	  * @param w int largeur
+	  * @param h int hauteur
+	  * @param c Color couleur du rectangle
 	  */
-    public Rectangle(int x, int y, int l, int h) {
-    	rectangle=new java.awt.Rectangle(x,y,l,h);     	
-    }
-    
-    public Rectangle(int x, int y, int l, int h,Color c) {
+	 public Rectangle(int x, int y, int l, int h,Color c) {
     	this(x,y,l,h);
     	this.setColor(c);
     }   
     
-   
+   /**
+    * @param p Point coordonnée du premier point du rectangle
+	* @param w int largueur
+	* @param h int hauteur
+    * @param c Color couleur du rectangle
+    */
     public Rectangle(Point p, int largeur,int hauteur,Color c) {
     	this(p,largeur,hauteur);
     	this.setColor(c);
     }
     
+    /**
+     * dessine le rectangle
+     */
 	@Override
 	public void dessineToi(Graphics g) {
-		g.setColor(this.getColor());
-		g.drawRect(rectangle.x,rectangle.y,rectangle.height,rectangle.width);		
+		g.setColor(this.getColor());		
+		g.drawRect(rectangle.x,rectangle.y,rectangle.width,rectangle.height);		
 	}
 	
 	@Override
-	public boolean contient(int a, int b) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean contient(int x, int y) {
+		return rectangle.contains(x, y);
 	}
 
 

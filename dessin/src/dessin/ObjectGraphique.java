@@ -8,7 +8,8 @@ public abstract class ObjectGraphique {
 	private Color color;
 	
 	public ObjectGraphique() {
-		color=Color.black;		
+		color=Color.black;
+		
 	}
 	
 	public ObjectGraphique(Color c) {

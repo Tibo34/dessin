@@ -36,12 +36,13 @@ public class Cercle extends ObjectGraphique {
 		g.drawOval(center.x-rayon,center.y-rayon,2*rayon,2*rayon);
 	}
 	
-	
-
 	@Override
-	public boolean contient(int a, int b) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean contient(int x, int y) {
+		return Math.sqrt((Math.pow((x - center.x),2) + (center.y - y))) < rayon;
+	}
+	
+	public String toString() {
+		return "Cercle [cerlce rayon="+rayon+" centre= ["+center+"]]";
 	}
 
 }
